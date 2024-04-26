@@ -7,13 +7,13 @@ import {
   CheckIcon,
   ClockIcon,
   CurrencyDollarIcon,
-  UserCircleIcon,
+  UserCircleIcon
 } from '@heroicons/react/24/outline';
-import { Button } from '@/app/ui/button';
+import { SubmitButton } from '@/app/ui/submit-button';
 import { createInvoice } from '@/app/lib/actions';
 
 export default function Form({ customers }: { customers: CustomerField[] }) {
-  const initialState = { message: null, errors: {} };
+  const initialState = { message: '', errors: {} };
   const [state, dispatch] = useFormState(createInvoice, initialState);
 
   return (
@@ -41,8 +41,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                 </option>
               ))}
             </select>
-            <UserCircleIcon
-              className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500"/>
+            <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
           </div>
           <div id="customer-error" aria-live="polite" aria-atomic="true">
             {state.errors?.customerId &&
@@ -70,8 +69,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                 aria-describedby="amount-error"
               />
-              <CurrencyDollarIcon
-                className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900"/>
+              <CurrencyDollarIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
             </div>
           </div>
           <div id="customer-error" aria-live="polite" aria-atomic="true">
@@ -86,9 +84,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
 
         {/* Invoice Status */}
         <fieldset>
-          <legend className="mb-2 block text-sm font-medium">
-            Set the invoice status
-          </legend>
+          <legend className="mb-2 block text-sm font-medium">Set the invoice status</legend>
           <div className="rounded-md border border-gray-200 bg-white px-[14px] py-3">
             <div className="flex gap-4">
               <div className="flex items-center">
@@ -104,7 +100,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                   htmlFor="pending"
                   className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-gray-100 px-3 py-1.5 text-xs font-medium text-gray-600"
                 >
-                  Pending <ClockIcon className="h-4 w-4"/>
+                  Pending <ClockIcon className="h-4 w-4" />
                 </label>
               </div>
               <div className="flex items-center">
@@ -119,7 +115,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                   htmlFor="paid"
                   className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-green-500 px-3 py-1.5 text-xs font-medium text-white"
                 >
-                  Paid <CheckIcon className="h-4 w-4"/>
+                  Paid <CheckIcon className="h-4 w-4" />
                 </label>
               </div>
             </div>
@@ -134,10 +130,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
           </div>
         </fieldset>
         <div id="customer-error" aria-live="polite" aria-atomic="true">
-          {state.message &&
-            <p className="mt-2 text-sm text-red-500">
-              {state.message}
-            </p>}
+          {state.message && <p className="mt-2 text-sm text-red-500">{state.message}</p>}
         </div>
       </div>
       <div className="mt-6 flex justify-end gap-4">
@@ -147,7 +140,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
         >
           Cancel
         </Link>
-        <Button type="submit">Create Invoice</Button>
+        <SubmitButton text={'Create Invoice'} />
       </div>
     </form>
   );
