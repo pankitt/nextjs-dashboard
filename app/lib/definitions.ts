@@ -86,3 +86,27 @@ export type InvoiceForm = {
   amount: number;
   status: 'pending' | 'paid';
 };
+
+export type UserType = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  maidenName: string;
+  age: number;
+  gender: 'male' | 'female';
+  email: string;
+  phone: string;
+  username: string;
+  password: string;
+  birthDate: string;
+  image: string;
+};
+
+export type UserPostsType = {
+  id: number;
+  title: string;
+  body: string;
+  userId: number;
+  tags: Array<string>;
+  reactions: number;
+};

@@ -1,0 +1,12 @@
+.wrapper {
+  margin-top: 20px;
+}
+.title {
+  display: flex;
+  align-items: center;
+}
+.name {
+  font-size: 40px;
+  color: blue;
+  margin-left: 20px;
+}
