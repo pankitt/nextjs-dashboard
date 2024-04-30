@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import Image from 'next/image';
 import Loader from '@/app/ui/common/loader';
-import { getUser, getUserPosts } from '@/app/lib/users/api';
+import { getUser } from '@/app/lib/users/api';
 import UserPosts from '@/app/ui/users/userPosts';
 import { lusitana } from '@/app/ui/fonts';
 import styles from './styles.module.css';

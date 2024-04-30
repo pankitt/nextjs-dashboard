@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { getAllUsers } from '@/app/lib/users/api';
-import { UserType } from '@/app/lib/definitions';
+// import { UserType } from '@/app/lib/definitions';
 import styles from './styles.module.css';
 import Image from 'next/image';
 
 export default async function UsersList() {
-  const usersList = await getAllUsers();  //Promise<{ users: UserType[] }>
+  const usersList = await getAllUsers(); //Promise<{ users: UserType[] }>
   // const usersList = await usersData;
 
   return (
