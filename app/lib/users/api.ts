@@ -1,37 +1,36 @@
+import { UserType, UserPostsType } from '@/app/lib/definitions';
+
 export async function getAllUsers() {
-  try {
     await new Promise((resolve) => setTimeout(resolve, 500)); //TODO Timeout
     const res = await fetch('https://dummyjson.com/users');
 
-    // if(!res.ok) throw new Error(res.statusText);
-    return res.json();
-  } catch (error) {
-    console.error('Failed to fetch users:', error);
-    throw new Error('Failed to fetch users.');
-  }
+    if(!res.ok) {
+      const error = await res.json();
+      throw new Error(error);
+    }
+    const data = await res.json();
+    return data as { users: UserType[] };
 }
 
 export async function getUser({ userId }: { userId: string }) {
-  try {
     const res = await fetch(`https://dummyjson.com/users/${userId}`);
 
-    // if(!res.ok) throw new Error(res.statusText);
-    return res.json();
-  } catch (error) {
-    console.error('Failed to fetch user:', error);
-    throw new Error('Failed to fetch user.');
-  }
+    if(!res.ok) {
+      const error = await res.json();
+      throw new Error(error);
+    }
+    const data = await res.json();
+    return data as UserType;
 }
 
 export async function getUserPosts({ userId }: { userId: string }) {
-  try {
-    // await new Promise((resolve) => setTimeout(resolve, 3000)); //TODO Timeout
+    await new Promise((resolve) => setTimeout(resolve, 1000)); //TODO Timeout
     const res = await fetch(`https://dummyjson.com/users/${userId}/posts`);
 
-    // if(!res.ok) throw new Error(res.statusText);
-    return res.json();
-  } catch (error) {
-    console.error('Failed to fetch user posts:', error);
-    throw new Error('Failed to fetch user posts.');
-  }
+    if(!res.ok) {
+      const error = await res.json();
+      throw new Error(error);
+    }
+    const data = await res.json();
+    return data as { posts: UserPostsType[] };
 }

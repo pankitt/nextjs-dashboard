@@ -5,8 +5,8 @@ import styles from './styles.module.css';
 import Image from 'next/image';
 
 export default async function UsersList() {
-  const usersData: Promise<{ users: UserType[] }> = await getAllUsers();
-  const usersList = await usersData;
+  const usersList = await getAllUsers();  //Promise<{ users: UserType[] }>
+  // const usersList = await usersData;
 
   return (
     <section className={styles.wrapper}>
