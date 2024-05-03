@@ -21,7 +21,7 @@ export async function fetchRevenue() {
     // Don't do this in production :)
 
     // console.log('Fetching revenue data...');
-    await new Promise((resolve) => setTimeout(resolve, 5000)); //TODO Timeout
+    // await new Promise((resolve) => setTimeout(resolve, 5000)); //TODO Timeout
 
     const data = await sql<Revenue>`SELECT * FROM revenue`;
 
@@ -38,7 +38,7 @@ export async function fetchLatestInvoices() {
   noStore();
 
   try {
-    await new Promise((resolve) => setTimeout(resolve, 7000)); //TODO Timeout
+    // await new Promise((resolve) => setTimeout(resolve, 7000)); //TODO Timeout
     const data = await sql<LatestInvoiceRaw>`
       SELECT invoices.amount, customers.name, customers.image_url, customers.email, invoices.id
       FROM invoices
@@ -76,7 +76,7 @@ export async function fetchCardData() {
       customerCountPromise,
       invoiceStatusPromise
     ]);
-    await new Promise((resolve) => setTimeout(resolve, 3000)); //TODO Timeout
+    // await new Promise((resolve) => setTimeout(resolve, 3000)); //TODO Timeout
 
     const numberOfInvoices = Number(data[0].rows[0].count ?? '0');
     const numberOfCustomers = Number(data[1].rows[0].count ?? '0');

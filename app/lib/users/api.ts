@@ -1,7 +1,7 @@
 import { UserType, UserPostsType } from '@/app/lib/definitions';
 
 export async function getAllUsers() {
-  await new Promise((resolve) => setTimeout(resolve, 500)); //TODO Timeout
+  // await new Promise((resolve) => setTimeout(resolve, 500)); //TODO Timeout
   const res = await fetch('https://dummyjson.com/users');
 
   if (!res.ok) {
@@ -24,7 +24,7 @@ export async function getUser({ userId }: { userId: string }) {
 }
 
 export async function getUserPosts({ userId }: { userId: string }) {
-  await new Promise((resolve) => setTimeout(resolve, 1000)); //TODO Timeout
+  // await new Promise((resolve) => setTimeout(resolve, 1000)); //TODO Timeout
   const res = await fetch(`https://dummyjson.com/users/${userId}/posts`);
 
   if (!res.ok) {
